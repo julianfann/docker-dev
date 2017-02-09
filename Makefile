@@ -1,6 +1,12 @@
 .PHONY: default
 default: up;
 
+.PHONY: start
+start: up;
+
+.PHONY: stop
+stop: down;	
+
 .PHONY: up
 # Run d4m-nfs and docker-compose up -d
 up:
