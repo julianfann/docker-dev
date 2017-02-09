@@ -69,8 +69,10 @@ location ~ \.php$ {
 }
 ```
 
-### Start using the Makefile
+### Makefile commands
 
-Run `make up` to run `./d4m-nfs/d4m-nfs.sh && docker-compose up -d`. This will mount your shared folders as nfs mounts and then run docker-compose in detatched mode. These commands can be run separately if needed.
+#### Start 
+Run `make up` or `make start` to run `./d4m-nfs/d4m-nfs.sh && docker-compose up -d`. This will mount your shared folders as nfs mounts and then run docker-compose in detatched mode. These commands can be run separately if needed.
 
-Run 'make down' which runs 
+### Stop
+Run `make down` or `make stop` which runs `docker-compose down`.
