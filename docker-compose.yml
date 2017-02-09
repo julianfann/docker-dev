@@ -1,0 +1,67 @@
+ version: '2'
+ services:
+  mysql:
+    image: mariadb:10.1
+    ports:
+      - "5000:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ../docker-dev/.docker/mysql/data:/var/lib/mysql
+  es:
+    image: elasticsearch:2.1
+    build: $PWD/.docker/elasticsearch
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - ../docker-dev/.docker/elasticsearch/data:/usr/share/elasticsearch/data
+  nginx:
+    image: nginx:latest
+    ports:
+       - "80:80"
+    environment:
+      DB_HOST: mysql:3306
+      DB_USER: root
+      DB_PASSWORD: root
+    volumes:
+      - ${PROJECTS_PATH}:/code
+      - ../docker-dev/.docker/nginx/conf/main.conf:/etc/nginx/conf.d/site.conf
+      - ../docker-dev/.docker/nginx/conf/hosts:/etc/nginx/conf.d/hosts
+      - ../docker-dev/.docker/nginx/logs/:/var/log/nginx/
+    links:
+      - mysql
+      - php7
+      - php56
+      - httpd
+  httpd:
+    image: httpd:2.4
+    ports:
+      - "80:80"
+    environment:
+      DB_HOST: mysql:3306
+      DB_USER: root
+      DB_PASSWORD: root
+    volumes:
+      - ${PROJECTS_PATH}:/code
+      - ../docker-dev/.docker/httpd/conf/httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - ../docker-dev/.docker/httpd/conf/hosts:/usr/local/apache2/conf/hosts
+      - ../docker-dev/.docker/httpd/logs/:/var/log/apache2/
+    links:
+      - mysql
+      - php7
+      - php56
+  php7:
+    image: php:7-fpm
+    build: $PWD/.docker/php7
+    volumes:
+      - ${PROJECTS_PATH}:/code
+      - ../docker-dev/.docker/php7/conf/php.ini:/usr/local/etc/php/php.ini
+    links:
+      - mysql
+  php56:
+    image: php:5.6-fpm
+    build: $PWD/.docker/php56
+    volumes:
+      - ${PROJECTS_PATH}:/code
+      - ../docker-dev/.docker/php56/conf/php.ini:/usr/local/etc/php/php.ini

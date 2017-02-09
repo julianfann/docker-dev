@@ -1,0 +1,12 @@
+2016/10/12 16:06:58 [error] 6#6: *1 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.18.0.1, server: gra.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.18.0.4:9000", host: "gra.dev"
+2016/10/12 16:07:55 [error] 6#6: *1 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Dotenv\Exception\InvalidPathException: Unable to read the environment file at /code/gra/.env. in /code/gra/vendor/vlucas/phpdotenv/src/Loader.php:75
+Stack trace:
+#0 /code/gra/vendor/vlucas/phpdotenv/src/Loader.php(52): Dotenv\Loader->ensureFileIsReadable()
+#1 /code/gra/vendor/vlucas/phpdotenv/src/Dotenv.php(50): Dotenv\Loader->load()
+#2 /code/gra/config/application.php(10): Dotenv\Dotenv->load()
+#3 /code/gra/web/wp-config.php(11): require_once('/code/gra/confi...')
+#4 /code/gra/web/wp/wp-load.php(42): require_once('/code/gra/web/w...')
+#5 /code/gra/web/wp/wp-blog-header.php(13): require_once('/code/gra/web/w...')
+#6 /code/gra/web/index.php(5): require('/code/gra/web/w...')
+#7 {main}
+  thrown in /code/gra/vendor/vlucas/phpdotenv/src/Loader.php on line 75" while reading response header from upstream, client: 172.18.0.1, server: gra.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.18.0.4:9000", host: "gra.dev"

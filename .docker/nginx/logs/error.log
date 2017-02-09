@@ -1,0 +1,14 @@
+2016/10/12 16:47:44 [emerg] 1#1: invalid URL prefix in /etc/nginx/conf.d/hosts/yoga.conf:10
+2016/10/12 16:50:11 [emerg] 1#1: invalid URL prefix in /etc/nginx/conf.d/hosts/yoga.conf:10
+2016/10/12 17:07:38 [error] 7#7: *22 connect() failed (113: No route to host) while connecting to upstream, client: 172.18.0.1, server: yoga.vmg, request: "GET / HTTP/1.1", upstream: "http://172.18.0.5:80/", host: "yoga.vmg"
+2016/10/12 17:07:51 [error] 7#7: *22 connect() failed (113: No route to host) while connecting to upstream, client: 172.18.0.1, server: yoga.vmg, request: "GET / HTTP/1.1", upstream: "http://172.18.0.5:80/", host: "yoga.vmg"
+2016/10/12 17:08:19 [error] 7#7: *22 connect() failed (113: No route to host) while connecting to upstream, client: 172.18.0.1, server: yoga.vmg, request: "GET / HTTP/1.1", upstream: "http://172.18.0.5:80/", host: "yoga.vmg"
+2016/10/17 14:01:12 [error] 6#6: *2176 open() "/usr/share/nginx/html/admin/commerce/settings/producttypes/2" failed (2: No such file or directory), client: 172.18.0.1, server: localhost, request: "GET /admin/commerce/settings/producttypes/2 HTTP/1.1", host: "veritas.local"
+2016/10/17 14:01:12 [error] 6#6: *2175 open() "/usr/share/nginx/html/products" failed (2: No such file or directory), client: 172.18.0.1, server: localhost, request: "GET /products HTTP/1.1", host: "veritas.local"
+2016/10/17 14:01:12 [error] 6#6: *2177 open() "/usr/share/nginx/html/admin/commerce/settings/producttypes/1" failed (2: No such file or directory), client: 172.18.0.1, server: localhost, request: "GET /admin/commerce/settings/producttypes/1 HTTP/1.1", host: "veritas.local"
+2016/10/17 14:01:17 [error] 6#6: *2178 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.18.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "veritas.local", referrer: "http://veritas.local/products"
+2016/10/17 14:01:19 [error] 6#6: *2178 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.18.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "veritas.local", referrer: "http://veritas.local/admin/commerce/settings/producttypes/2"
+2016/10/17 14:01:22 [error] 6#6: *2178 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.18.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "veritas.local", referrer: "http://veritas.local/admin/commerce/settings/producttypes/1"
+2016/10/20 11:52:06 [emerg] 1#1: host not found in upstream "php56" in /etc/nginx/conf.d/hosts/print-first.conf:26
+2016/10/20 11:53:37 [emerg] 1#1: host not found in upstream "php56" in /etc/nginx/conf.d/hosts/print-first.conf:26
+2016/10/20 11:54:05 [emerg] 1#1: host not found in upstream "httpd" in /etc/nginx/conf.d/hosts/yoga.conf:10
