@@ -19,7 +19,7 @@
   nginx:
     image: nginx:latest
     ports:
-       - "80:80"
+       - "80:81"
     environment:
       DB_HOST: mysql:3306
       DB_USER: root

@@ -1,0 +1,3 @@
+[submodule "d4m-nfs"]
+	path = d4m-nfs
+	url = https://github.com/julianfann/d4m-nfs
