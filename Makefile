@@ -5,7 +5,7 @@ default: up;
 start: up;
 
 .PHONY: stop
-stop: down;	
+stop: down;
 
 .PHONY: up
 # Run d4m-nfs and docker-compose up -d
@@ -16,3 +16,13 @@ up:
 # Run docker-compose down
 down:
 	docker-compose down
+
+.PHONY: ps
+# Run docker-compose ps
+ps:
+	docker-compose ps
+
+.PHONY: hosts
+# Run docker-compose ps
+hosts:
+	${EDITOR} /etc/hosts

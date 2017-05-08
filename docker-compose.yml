@@ -8,32 +8,32 @@
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - ../docker-dev/.docker/mysql/data:/var/lib/mysql
-  es:
-    image: elasticsearch:2.1
-    build: $PWD/.docker/elasticsearch
-    ports:
-      - "9200:9200"
-      - "9300:9300"
-    volumes:
-      - ../docker-dev/.docker/elasticsearch/data:/usr/share/elasticsearch/data
-  nginx:
-    image: nginx:latest
-    ports:
-       - "81:80"
-    environment:
-      DB_HOST: mysql:3306
-      DB_USER: root
-      DB_PASSWORD: root
-    volumes:
-      - ${PROJECTS_PATH}:/code
-      - ../docker-dev/.docker/nginx/conf/main.conf:/etc/nginx/conf.d/site.conf
-      - ../docker-dev/.docker/nginx/conf/hosts:/etc/nginx/conf.d/hosts
-      - ../docker-dev/.docker/nginx/logs/:/var/log/nginx/
-    links:
-      - mysql
-      - php7
-      - php56
-      - httpd
+  # es:
+  #   image: elasticsearch:2.1
+  #   build: $PWD/.docker/elasticsearch
+  #   ports:
+  #     - "9200:9200"
+  #     - "9300:9300"
+  #   volumes:
+  #     - ../docker-dev/.docker/elasticsearch/data:/usr/share/elasticsearch/data
+  # nginx:
+  #   image: nginx:latest
+  #   ports:
+  #      - "81:80"
+  #   environment:
+  #     DB_HOST: mysql:3306
+  #     DB_USER: root
+  #     DB_PASSWORD: root
+  #   volumes:
+  #     - ${PROJECTS_PATH}:/code
+  #     - ../docker-dev/.docker/nginx/conf/main.conf:/etc/nginx/conf.d/site.conf
+  #     - ../docker-dev/.docker/nginx/conf/hosts:/etc/nginx/conf.d/hosts
+  #     - ../docker-dev/.docker/nginx/logs/:/var/log/nginx/
+  #   links:
+  #     - mysql
+  #     - php7
+  #     - php56
+  #     - httpd
   httpd:
     image: httpd:2.4
     ports:
@@ -65,3 +65,13 @@
     volumes:
       - ${PROJECTS_PATH}:/code
       - ../docker-dev/.docker/php56/conf/php.ini:/usr/local/etc/php/php.ini
+    links:
+      - mysql
+  php54:
+    image: php:5.4-fpm
+    build: $PWD/.docker/php54
+    volumes:
+      - ${PROJECTS_PATH}:/code
+      - ../docker-dev/.docker/php54/conf/php.ini:/usr/local/etc/php/php.ini
+    links:
+      - mysql
